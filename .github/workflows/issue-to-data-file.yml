@@ -1,0 +1,42 @@
+name: Convert Issues to JSON Data
+
+on:
+  issues:
+    # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issues
+    types:
+      - opened
+      - edited
+      - reopened
+      - labeled
+
+jobs:
+  update_library:
+    runs-on: ubuntu-latest
+    name: Convert New content/link Issue to Sites Data
+    # only continue if issue has "built-with-eleventy" label
+    # require an `approved` label for moderation
+    if: contains( github.event.issue.labels.*.name, 'content/link') && contains( github.event.issue.labels.*.name, 'approved')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: GitHub Issue to JSON
+        uses: zachleat/github-issue-to-json-file@v5.0.0
+        with:
+          # This controls where the JSON files are generated
+          folder: "_data/links"
+          # This tells the action which GitHub Issue Form template file to use
+          issue-template: "add-new-link.yml"
+          # This controls which property we use to key the file name hash off of (values should be unique in your data set)
+          hash-property-name: "url"
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add *
+          git commit -m "Adding data file for #${{ env.IssueNumber }}"
+          git push
+      - name: Close issue
+        uses: peter-evans/close-issue@v1
+        with:
+          issue-number: "${{ env.IssueNumber }}"
+          comment: "Thank you! Your data file has been added!"
