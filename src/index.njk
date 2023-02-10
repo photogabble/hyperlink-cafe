@@ -15,13 +15,16 @@
         </p>
     </section>
 
-    <section class="list">
+    <section>
+        <h3>Members</h3>
+        <ul>
         {% for id, link in links %}
-            <div>
+            <li>
                 <h2><a href="{{ link.url }}" title="Visit {{ link.title }}">{{ link.title }}</a></h2>
                 <small><a href="{{ link.url }}" title="Visit {{ link.title }}">{{ link.url }}</a></small>
                 <p>{{ link.description }}</p>
-            </div>
+            </li>
         {% endfor %}
+        </ul>
     </section>
 {% endblock %}

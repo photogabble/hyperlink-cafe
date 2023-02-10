@@ -75,18 +75,22 @@
             margin-bottom: 0
         }
 
-        .list {
+        ul {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin:0;
+            padding:0;
         }
 
-        .list div {
+        ul li {
             border: 3px double #666;
             padding: 1rem;
             margin-bottom: 0;
+            list-style: none;
         }
 
-        .list div:hover a {
+        ul li:hover a {
             color: #2bbc8a;
         }
 
@@ -97,6 +101,7 @@
             align-items: center;
             align-content: center;
             margin-bottom: 2rem;
+            margin-top: 3rem;
             color: #666;
             font-size: 0.8rem;
         }
@@ -114,7 +119,7 @@
 <body>
 <main>
     <header>
-        <h1><a id="top" href="/">the hyperlink cafe</a></h1>
+        <h1><a id="top" href="/">the hyperlink café</a></h1>
         <h2>A curated list of websites that have a links page akin to the blogrolls of old.</h2>
     </header>
     {% block content %}
