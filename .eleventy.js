@@ -1,9 +1,6 @@
 module.exports = function (eleventyConfig) {
 
-  eleventyConfig.addCollection('all-links', (collection) =>{
-    const l = collection.links
-    return [];
-  })
+  // TODO: Parse descriptions to add tags via hashtag usage
 
   return {
     dir: {
