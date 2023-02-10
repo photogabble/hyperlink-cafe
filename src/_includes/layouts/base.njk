@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+
+    <!-- SEO -->
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}"/>
+    <link rel="canonical" href="{{ canonical or page.url }}"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="generator" content="{{ eleventy.generator }}">
+    {% block head %}{% endblock %}
+
+    <style>
+        body {
+            height: 100%;
+            background-color: #1d1f21;
+            color: #c9cacc;
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.725;
+            text-rendering: geometricPrecision;
+        }
+
+        a {
+            color: #acacac;
+            transition: 350ms;
+        }
+
+        main {
+            max-width: 72rem;
+            padding-right: 2rem;
+            padding-left: 2rem;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        header h1, header h2 {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        header a {
+            color: #2bbc8a;
+        }
+
+        header a:hover{
+            color: #c9cacc;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            margin: 0
+        }
+
+        section small {
+            color: #666;
+        }
+
+        section p:last-child {
+            margin-bottom: 0
+        }
+
+        .list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .list div {
+            border: 3px double #666;
+            padding: 1rem;
+            margin-bottom: 0;
+        }
+
+        .list div:hover a {
+            color: #2bbc8a;
+        }
+
+        footer {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        footer section:first-child {
+            align-self: flex-start;
+            margin-right: 2rem;
+        }
+
+        footer section:last-child {
+            align-self: end;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <h1><a id="top" href="/">the hyperlink cafe</a></h1>
+        <h2>A curated list of websites that have a links page akin to the blogrolls of old.</h2>
+    </header>
+    {% block content %}
+        {{ content | safe }}
+    {% endblock %}
+    <footer>
+        <section>
+            Made by <a href="https://www.photogabble.co.uk" title="Visit Simons Digital Garden">Simon</a> with <a
+                    href="https://www.11ty.dev/" title="Visit the home page of the 11ty static site generator">Eleventy.js</a>
+            | Source on <a href="https://github.com/photogabble/hyperlink-cafe"
+                           title="Visit the source repository for hyperlink.cafe">GitHub</a>. Add yourself!
+        </section>
+        <section><a href="/colophon">Colophon</a> | <a href="/not-invented-here">Not Invented Here</a> | <a
+                    href="/changelog">Changelog</a></section>
+    </footer>
+</main>
+</body>
+</html>
