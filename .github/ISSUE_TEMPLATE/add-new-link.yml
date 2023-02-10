@@ -18,9 +18,9 @@ body:
   - type: input
     id: url
     attributes:
-      label: Site URL
-      description: The home page of the live web site. _[parser:url]_
-      placeholder: e.g. https://www.photogabble.co.uk/
+      label: Site Links Page URL
+      description: The url of your links page. _[parser:url]_
+      placeholder: e.g. https://www.photogabble.co.uk/links
     validations:
       required: true
   - type: input
@@ -32,10 +32,10 @@ body:
     validations:
       required: false
   - type: textarea
-    id: reason
+    id: description
     attributes:
-      label: "Reason for adding"
-      description: "Optional: _leave this empty if you like_"
-      placeholder: e.g. I think this project is cool and would like to be a part of it...
+      label: "Website description"
+      description: "Optional: _you can leave this empty if you like_"
+      placeholder: e.g. Personal website and digital garden of a professional coffee drinker...
     validations:
       required: false
