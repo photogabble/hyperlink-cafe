@@ -1,0 +1,27 @@
+{
+  "name": "@photogabble/hyperlink-cafe",
+  "version": "1.0.0",
+  "description": "The source for hyperlink.cafe",
+  "main": "index.js",
+  "scripts": {
+    "serve": "eleventy --serve",
+    "build": "eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/photogabble/hyperlink-cafe.git"
+  },
+  "keywords": [
+    "11ty"
+  ],
+  "author": "Simon Dann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/photogabble/hyperlink-cafe/issues"
+  },
+  "homepage": "https://github.com/photogabble/hyperlink-cafe#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  }
+}
